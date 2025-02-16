@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const adminSchema = mongoose.Schema({
+const studentSchema = mongoose.Schema({
     userName : {
         type : String,
         required : true
@@ -13,16 +13,16 @@ const adminSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    facultyIds : [{
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'FacultyModel',
-        }],
+    facultyId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'FacultyModel',
+    },
     status : {
         type : Boolean,
         default : true,
     }
 },{timestamps : true});
 
-const AdminModel = mongoose.model('AdminModel', adminSchema);
+const StudentModel = mongoose.model('StudentModel', studentSchema);
 
-module.exports = AdminModel;
+module.exports = StudentModel;
